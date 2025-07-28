@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Data Management</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    th, td {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #0077cc;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .call-icon {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Data Management</h2>
+  <input type="text" id="searchBox" placeholder="Search by Name, Reg No, etc..." onkeyup="filterTable()" />
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>S.NO</th>
+        <th>REG_NO</th>
+        <th>NAME</th>
+        <th>PARENT_NUMBER</th>
+        <th>STUDENT_NUMBER</th>
+        <th>MAIL_ID</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    const students = [
+      { SNO: 1, REG_NO: "110824104001", NAME: "AHAMAD REZA", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 2, REG_NO: "110824104002", NAME: "AISHWARYA B", PARENT_NUMBER: "7305719717", STUDENT_NUMBER: "6385799717", MAIL_ID: "jansiaishwarya02@gmail.com" },
+      { SNO: 3, REG_NO: "110824104003", NAME: "AJAY M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 4, REG_NO: "110824104004", NAME: "AKASH PRABHU P", PARENT_NUMBER: "8056170460", STUDENT_NUMBER: "9566231852", MAIL_ID: "akashprabhu0302@gmail.com" },
+      { SNO: 5, REG_NO: "110824104005", NAME: "APSAR BASHA A", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 6, REG_NO: "110824104006", NAME: "ARUL MOZHI V", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 7, REG_NO: "110824104007", NAME: "ARUNKUMAR M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 8, REG_NO: "110824104008", NAME: "ATHIYAMAN R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 9, REG_NO: "110824104009", NAME: "BANU M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 10, REG_NO: "110824104010", NAME: "BAVITHRA K", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 11, REG_NO: "110824104011", NAME: "BHARATH P", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 12, REG_NO: "110824104012", NAME: "BHAVANA R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 13, REG_NO: "110824104013", NAME: "BIJUKUMAR M K", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 14, REG_NO: "110824104014", NAME: "BOOMA PRIYA R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
+      { SNO: 15, REG_NO: "110824104015", NAME: "BRINDHA DEVI V", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" }
+    ];
+
+    function createCallLink(number) {
+      return number ? `<a href="tel:${number}" class="call-icon">📞</a>` : "";
+    }
+
+    function renderTable(data) {
+      const tbody = document.getElementById("tableBody");
+      tbody.innerHTML = "";
+      data.forEach(student => {
+        const row = `<tr>
+          <td>${student.SNO}</td>
+          <td>${student.REG_NO}</td>
+          <td>${student.NAME}</td>
+          <td>${student.PARENT_NUMBER}${createCallLink(student.PARENT_NUMBER)}</td>
+          <td>${student.STUDENT_NUMBER}${createCallLink(student.STUDENT_NUMBER)}</td>
+          <td>${student.MAIL_ID}</td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+
+    function filterTable() {
+      const query = document.getElementById("searchBox").value.toLowerCase();
+      const filtered = students.filter(student =>
+        Object.values(student).some(val =>
+          String(val).toLowerCase().includes(query)
+        )
+      );
+      renderTable(filtered);
+    }
+
+    renderTable(students);
+  </script>
+</body>
+</html>
