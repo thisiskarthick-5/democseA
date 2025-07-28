@@ -42,6 +42,12 @@
       color: #0077cc;
       font-size: 16px;
     }
+    .email-link {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +56,6 @@
   <table id="studentTable">
     <thead>
       <tr>
-        <th>S.NO</th>
         <th>REG_NO</th>
         <th>NAME</th>
         <th>PARENT_NUMBER</th>
@@ -63,25 +68,63 @@
 
   <script>
     const students = [
-      { SNO: 1, REG_NO: "110824104001", NAME: "AHAMAD REZA", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 2, REG_NO: "110824104002", NAME: "AISHWARYA B", PARENT_NUMBER: "7305719717", STUDENT_NUMBER: "6385799717", MAIL_ID: "jansiaishwarya02@gmail.com" },
-      { SNO: 3, REG_NO: "110824104003", NAME: "AJAY M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 4, REG_NO: "110824104004", NAME: "AKASH PRABHU P", PARENT_NUMBER: "9840457818", STUDENT_NUMBER: "9566231852", MAIL_ID: "akashprabhu0302@gmail.com" },
-      { SNO: 5, REG_NO: "110824104005", NAME: "APSAR BASHA A", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 6, REG_NO: "110824104006", NAME: "ARUL MOZHI V", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 7, REG_NO: "110824104007", NAME: "ARUNKUMAR M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 8, REG_NO: "110824104008", NAME: "ATHIYAMAN R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 9, REG_NO: "110824104009", NAME: "BANU M", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 10, REG_NO: "110824104010", NAME: "BAVITHRA K", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 11, REG_NO: "110824104011", NAME: "BHARATH P", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 12, REG_NO: "110824104012", NAME: "BHAVANA R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 13, REG_NO: "110824104013", NAME: "BIJUKUMAR M K", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 14, REG_NO: "110824104014", NAME: "BOOMA PRIYA R", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" },
-      { SNO: 15, REG_NO: "110824104015", NAME: "BRINDHA DEVI V", PARENT_NUMBER: "", STUDENT_NUMBER: "", MAIL_ID: "" }
+      { regNo: "110824104001", name: "AHAMAD REZA", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104002", name: "AISHWARYA B", parentNumber: "7305719717", studentNumber: "6385799717", email: "jansiaishwarya02@gmail.com" },
+      { regNo: "110824104003", name: "AJAY M", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104004", name: "AKASH PRABHU P", parentNumber: "8056170460", studentNumber: "9566231852", email: "akashprabhu0302@gmail.com" },
+      { regNo: "110824104005", name: "APSAR BASHA A", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104006", name: "ASIKHA M", parentNumber: "9677143227", studentNumber: "8148535886", email: "ashikam8@gmail.com" },
+      { regNo: "110824104007", name: "BABY SHALINI M", parentNumber: "9843488652", studentNumber: "8072327115", email: "shalinimurugesan2007@gmail.com" },
+      { regNo: "110824104008", name: "BAVADHARSHINI", parentNumber: "8940810016", studentNumber: "6381282879", email: "gopibhavadharshini@gmail.com" },
+      { regNo: "110824104009", name: "CHARAN PRASUNA", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104010", name: "DEEPAK S", parentNumber: "7449093995", studentNumber: "9342238936", email: "deepak.me005@gmail.com" },
+      { regNo: "110824104011", name: "DEEPAK KUMAR K", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104012", name: "DEEPIKA P", parentNumber: "9629326325", studentNumber: "9994711927", email: "deepikapremkumar257@gmail.com" },
+      { regNo: "110824104013", name: "DHANUJA S", parentNumber: "9841348887", studentNumber: "6379589454", email: "chinnidhanuja@gmail.com" },
+      { regNo: "110824104014", name: "DINESH P", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104015", name: "DINESH KUMAR S", parentNumber: "", studentNumber: "7338726903", email: "dk6934029@gmail.com" },
+      { regNo: "110824104016", name: "DIVYA V", parentNumber: "9751522461", studentNumber: "9360882180", email: "divyavenkatesan0707@gmail.com" },
+      { regNo: "110824104017", name: "DOUGHLAS CHRISTOPHER I", parentNumber: "9345072331", studentNumber: "9344917385", email: "doughlasdoughlas489@gmail.com" },
+      { regNo: "110824104018", name: "GANESH A", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104019", name: "GOKUL RAJ K", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104020", name: "GOWTHAM R", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104021", name: "HARINIPRIYA S. P", parentNumber: "8056195327", studentNumber: "9361885298", email: "harinipriya978@gmail.com" },
+      { regNo: "110824104022", name: "HARI PRASATH D", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104023", name: "HARISH A", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104024", name: "HAVANA A", parentNumber: "9443482765", studentNumber: "9342434539", email: "havanamagdalene@gmail.com" },
+      { regNo: "110824104025", name: "JAIKUMAR A", parentNumber: "7010482377", studentNumber: "8778922513", email: "jaikumarvijaykumar12@gmail.com" },
+      { regNo: "110824104026", name: "JANARTHANAN N", parentNumber: "9941453515", studentNumber: "7810014534", email: "jana4122005dec@gmail.com" },
+      { regNo: "110824104027", name: "JAYANTH G", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104028", name: "JAYASHRII B", parentNumber: "9789003072", studentNumber: "7810028781", email: "jayashriibalaji1503@gmail.com" },
+      { regNo: "110824104029", name: "JOHN DANIEL PAUL M", parentNumber: "9150466298", studentNumber: "8610612757", email: "Johnd542721@gamil.com" },
+      { regNo: "110824104030", name: "KANNADASAN V", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104031", name: "KARTHICK J", parentNumber: "9840457818", studentNumber: "8610795811", email: "karthfire@gmail.com" },
+      { regNo: "110824104032", name: "KARTHIK K", parentNumber: "9095858247", studentNumber: "8778253756", email: "karthikking240786@gmail.com" },
+      { regNo: "110824104033", name: "KARTHIKA K", parentNumber: "7358210115", studentNumber: "7305361219", email: "karthikakasivel155@gmail.com" },
+      { regNo: "110824104034", name: "KIRAN S", parentNumber: "9490923751", studentNumber: "9440743251", email: "kirank04680@gmail.com" },
+      { regNo: "110824104035", name: "KISHORE V", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104036", name: "KUMARI R", parentNumber: "9943778358", studentNumber: "9482068315", email: "rosinaidu2007@gmail.com" },
+      { regNo: "110824104037", name: "LAKSHMI NARAYANAN M", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104038", name: "LAKSHMI PRIYA B", parentNumber: "8973297900", studentNumber: "8637473584", email: "lakshmipriyabala1408@gmail.com" },
+      { regNo: "110824104040", name: "LOGESH K", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104041", name: "LOGESHWARI K", parentNumber: "9385330650", studentNumber: "8124285611", email: "lokeshwarikubenthiran@gmail.com" },
+      { regNo: "110824104042", name: "MADHIYARASU G.S.A", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104043", name: "MAHALAKSHMI .S", parentNumber: "9080486772", studentNumber: "8939204289", email: "maha03302007@gmail.com" },
+      { regNo: "110824104044", name: "MANJU NETAM", parentNumber: "9940243549", studentNumber: "8925514554", email: "netammanju12@gmail.com" },
+      { regNo: "110824104045", name: "MANOJ B", parentNumber: "9940141296", studentNumber: "9884762960", email: "babumanoj1848@gmail.com" },
+      { regNo: "110824104046", name: "MOHAMMAD HASSAN", parentNumber: "", studentNumber: "", email: "" },
+      { regNo: "110824104047", name: "MOHANAPRIYAN B", parentNumber: "9940955992", studentNumber: "6383960309", email: "mohanbasker42@gmail.com" },
+      { regNo: "110824104048", name: "MONA SHREE S", parentNumber: "7397060402", studentNumber: "7397713402", email: "monudaya0407@gmail.com" },
+      { regNo: "110824104049", name: "MONISH RAJ T", parentNumber: "9384456022", studentNumber: "7418948793", email: "monishraj302@gmail.com" },
+      { regNo: "110824104050", name: "MUKESHWAR S", parentNumber: "8124469577", studentNumber: "7305910150", email: "mukeshwar711200545@gmail.com" }
     ];
 
     function createCallLink(number) {
       return number ? `<a href="tel:${number}" class="call-icon">📞</a>` : "";
+    }
+
+    function createMailLink(email) {
+      return email ? `<a href="mailto:${email}" class="email-link">📧</a>` : "";
     }
 
     function renderTable(data) {
@@ -89,12 +132,11 @@
       tbody.innerHTML = "";
       data.forEach(student => {
         const row = `<tr>
-          <td>${student.SNO}</td>
-          <td>${student.REG_NO}</td>
-          <td>${student.NAME}</td>
-          <td>${student.PARENT_NUMBER}${createCallLink(student.PARENT_NUMBER)}</td>
-          <td>${student.STUDENT_NUMBER}${createCallLink(student.STUDENT_NUMBER)}</td>
-          <td>${student.MAIL_ID}</td>
+          <td>${student.regNo}</td>
+          <td>${student.name}</td>
+          <td>${student.parentNumber}${createCallLink(student.parentNumber)}</td>
+          <td>${student.studentNumber}${createCallLink(student.studentNumber)}</td>
+          <td>${student.email}${createMailLink(student.email)}</td>
         </tr>`;
         tbody.innerHTML += row;
       });
